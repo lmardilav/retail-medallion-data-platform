@@ -122,20 +122,40 @@ Ver catálogo en: [docs/catalogo_datos.md](docs/catalogo_datos.md)
 
 ### PostgreSQL - tablas creadas
 
-![PostgreSQL](docs/evidencias/fase1/postgresql_tablas.png)
+![PostgreSQL](docs/evidencias/fase1/conteos_tablas.png)
 
 ### Buckets S3 creados
 
-![Buckets](docs/evidencias/fase2/s3_buckets_aws.png)
+![Buckets](docs/evidencias/fase2/s3_buckets_aws.jpg)
+
+### Terraform buckets
+
+![Terraform](docs/evidencias/fase2/terraform_apply_s3.png)
 
 ### Datos cargados en Bronze
 
 ![Bronze](docs/evidencias/fase3/bronze_cargado.png)
 
-### Capa Gold completa
+### Calidad de datos
 
-![Gold](docs/evidencias/fase3/gold_completo.png)
+![Calidad](docs/evidencias/fase3/data_quality_checks.png)
+
+### Capa Gold - Productos
+
+![Gold Productos](docs/evidencias/fase3/gold_dim_productos.png)
+
+### Capa Gold - Clientes
+
+![Gold Clientes](docs/evidencias/fase3/gold_dim_clientes.png)
+
+### Capa Gold - Ventas
+
+![Gold Ventas](docs/evidencias/fase3/gold_fact_ventas.png)
+
+### Capa Gold - RFM
+
+![Gold RFM](docs/evidencias/fase3/gold_rfm.png)
 
 ### Orquestación
 
-![Pipeline](docs/evidencias/fase4/orquestacion_pipeline.png)
+![Pipeline](docs/evidencias/fase3/orquestacion_pipeline.png)
