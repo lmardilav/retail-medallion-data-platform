@@ -108,8 +108,6 @@ python silver_transform.py
 python gold_transform.py
 ```
 
-Luego en el `README.md`, agrega esta línea:
-
 ```md
 ## Arquitectura
 
