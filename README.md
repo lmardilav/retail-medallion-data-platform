@@ -178,12 +178,13 @@ python silver_transform.py
 python gold_transform.py
 ```
 
-```md
 ## Arquitectura
 
-Ver imagen del diagrama en:![Arquitectura](docs/evidencias/arquitectura.png)
-Ver diagrama en: [docs/arquitectura.md](docs/arquitectura.md)
-```
+![Arquitectura](docs/evidencias/arquitectura.png)
+
+Arquitectura implementada:
+
+PostgreSQL → S3 Bronze → S3 Silver → S3 Gold → AWS Glue → CloudWatch + SNS
 
 ## Catálogo de datos
 
