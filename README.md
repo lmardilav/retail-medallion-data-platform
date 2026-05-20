@@ -181,6 +181,7 @@ python gold_transform.py
 ```md
 ## Arquitectura
 
+Ver imagen del diagrama en:![Arquitectura](docs/evidencias/arquitectura.png)
 Ver diagrama en: [docs/arquitectura.md](docs/arquitectura.md)
 ```
 
@@ -275,6 +276,18 @@ Ver catálogo en: [docs/catalogo_datos.md](docs/catalogo_datos.md)
 ### AWS Secrets Manager
 
 ![Secrets Manager](docs/evidencias/fase4/secrets_manager.png)
+
+### IAM Roles
+
+![Secrets Manager](docs/evidencias/fase4/iam_roles.png)
+
+### SNS Alertas
+
+![SNS](docs/evidencias/fase4/sns_topic.png)
+
+## Arquitectura
+
+![Arquitectura](docs/evidencias/arquitectura.png)
 
 ---
 

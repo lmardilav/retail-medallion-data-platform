@@ -1,3 +1,4 @@
+from venv import logger
 import boto3
 import pandas as pd
 from io import BytesIO
@@ -60,6 +61,6 @@ for file in files:
         Body=buffer.getvalue()
     )
 
-    print(file, "transformado")
+    logger.info(f"{file} transformado")
 
-print("Silver completado")
+logger.info("Silver completado")
