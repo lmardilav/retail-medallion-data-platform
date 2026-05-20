@@ -180,7 +180,7 @@ python gold_transform.py
 
 ## Arquitectura
 
-![Arquitectura](docs/evidencias/arquitectura.png)
+![Arquitectura](docs/arquitectura.png)
 
 Arquitectura implementada:
 
@@ -285,10 +285,6 @@ Ver catálogo en: [docs/catalogo_datos.md](docs/catalogo_datos.md)
 ### SNS Alertas
 
 ![SNS](docs/evidencias/fase4/sns_topic.png)
-
-## Arquitectura
-
-![Arquitectura](docs/evidencias/arquitectura.png)
 
 ---
 
