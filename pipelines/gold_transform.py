@@ -113,6 +113,7 @@ ventas["fec_trans"] = pd.to_datetime(ventas["fec_trans"], errors="coerce")
 ventas["vr_venta_neto"] = (
     ventas["qty_vendida"] * ventas["precio_unitario_venta"]
 ) - ventas["descuento_aplicado"]
+ventas["vr_venta_neto"] = ventas["vr_venta_neto"].clip(lower=0)
 
 ventas["ind_descuento"] = ventas["descuento_aplicado"] > 0
 
