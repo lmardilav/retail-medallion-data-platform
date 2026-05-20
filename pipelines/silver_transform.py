@@ -1,8 +1,8 @@
-from venv import logger
 import boto3
 import pandas as pd
 from io import BytesIO
 import hashlib
+from logger_config import logger
 
 s3 = boto3.client("s3")
 
@@ -14,6 +14,7 @@ files = [
     "MSTR_PROVEEDORES.parquet",
     "CRM_MIEMBROS.parquet",
     "TRANS_VENTAS.parquet",
+    "MKT_VISITAS_CANAL.parquet",
     "MSTR_TIENDAS.parquet",
     "INV_STOCK_DIARIO.parquet",
     "POST_DEVOLUCIONES.parquet"

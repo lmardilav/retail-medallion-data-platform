@@ -5,7 +5,8 @@ s3 = boto3.client("s3")
 
 bucket="retail-data-engineering-luis-810204248846-bronze"
 
-folder="../data-generation/output/parquet"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+folder = os.path.join(BASE_DIR, "data-generation", "output", "parquet")
 
 for file in os.listdir(folder):
 

@@ -91,6 +91,7 @@ Tablas:
 - MSTR_TIENDAS
 - CRM_MIEMBROS
 - TRANS_VENTAS
+- MKT_VISITAS_CANAL
 - INV_STOCK_DIARIO
 - POST_DEVOLUCIONES
 
@@ -119,6 +120,11 @@ Hechos:
 - fact_devoluciones
 - fact_rfm_clientes
 - kpi_ventas_diarias
+- referencias_riesgo_quiebre_7d
+- kpi_conversion_canal_categoria
+- kpi_devoluciones_patrones
+- kpi_segmentos_rfm
+- vista_dashboard_ejecutivo
 
 ---
 

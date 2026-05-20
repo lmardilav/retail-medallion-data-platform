@@ -1,6 +1,9 @@
 import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
 
 url = URL.create(
     drivername="postgresql+pg8000",
@@ -19,12 +22,13 @@ tables = [
     "MSTR_TIENDAS",
     "CRM_MIEMBROS",
     "TRANS_VENTAS",
+    "MKT_VISITAS_CANAL",
     "INV_STOCK_DIARIO",
     "POST_DEVOLUCIONES"
 ]
 
 for table in tables:
-    file = f"output/csv/{table}.csv"
+    file = BASE_DIR / "output" / "csv" / f"{table}.csv"
 
     print(f"Cargando {table}...")
 

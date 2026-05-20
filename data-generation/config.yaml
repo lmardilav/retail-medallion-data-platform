@@ -20,6 +20,9 @@ tables:
   TRANS_VENTAS:
     records: 1000000
 
+  MKT_VISITAS_CANAL:
+    records: 1800000
+
   INV_STOCK_DIARIO:
     records: 750000
 

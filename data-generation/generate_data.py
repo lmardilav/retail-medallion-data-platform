@@ -4,11 +4,14 @@ import random
 import numpy as np
 import pandas as pd
 from faker import Faker
+from pathlib import Path
 from datetime import datetime, timedelta
 
 fake = Faker("es_CO")
 
-with open("config.yaml", "r", encoding="utf-8") as file:
+BASE_DIR = Path(__file__).resolve().parent
+
+with open(BASE_DIR / "config.yaml", "r", encoding="utf-8") as file:
     config = yaml.safe_load(file)
 
 SEED = config["seed"]
@@ -16,8 +19,8 @@ random.seed(SEED)
 np.random.seed(SEED)
 Faker.seed(SEED)
 
-CSV_PATH = "output/csv"
-PARQUET_PATH = "output/parquet"
+CSV_PATH = BASE_DIR / "output" / "csv"
+PARQUET_PATH = BASE_DIR / "output" / "parquet"
 
 os.makedirs(CSV_PATH, exist_ok=True)
 os.makedirs(PARQUET_PATH, exist_ok=True)
@@ -32,8 +35,15 @@ def random_date():
 
 
 def save_table(df, name):
-    df.to_csv(f"{CSV_PATH}/{name}.csv", index=False, encoding="utf-8")
-    df.to_parquet(f"{PARQUET_PATH}/{name}.parquet", index=False)
+    csv_file = CSV_PATH / f"{name}.csv"
+    parquet_file = PARQUET_PATH / f"{name}.parquet"
+
+    if csv_file.exists() and parquet_file.exists():
+        print(f"{name}: ya existe, se conserva archivo actual")
+        return
+
+    df.to_csv(csv_file, index=False, encoding="utf-8")
+    df.to_parquet(parquet_file, index=False)
     print(f"{name}: {len(df)} registros generados")
 
 
@@ -124,7 +134,26 @@ ventas = pd.DataFrame({
 save_table(ventas, "TRANS_VENTAS")
 
 
-# 6. INVENTARIO
+# 6. VISITAS POR CANAL
+n_visitas = 1_800_000
+visitas_fechas = [random_date() for _ in range(n_visitas)]
+
+visitas = pd.DataFrame({
+    "id_visita": range(1, n_visitas + 1),
+    "id_miembro": np.random.choice(miembros["id_miembro"], n_visitas),
+    "id_tienda": np.random.choice(tiendas["id_tienda"], n_visitas),
+    "art_id": np.random.choice(articulos["art_id"], n_visitas),
+    "fec_visita": [f.date() for f in visitas_fechas],
+    "canal_visita": np.random.choice(["Tienda", "Web", "App", "Marketplace"], n_visitas),
+    "tipo_interaccion": np.random.choice(
+        ["Vista producto", "Busqueda", "Entrada tienda", "Carrito"],
+        n_visitas
+    )
+})
+save_table(visitas, "MKT_VISITAS_CANAL")
+
+
+# 7. INVENTARIO
 n_stock = 750_000
 stock = pd.DataFrame({
     "id_snapshot": range(1, n_stock + 1),
@@ -140,7 +169,7 @@ stock = pd.DataFrame({
 save_table(stock, "INV_STOCK_DIARIO")
 
 
-# 7. DEVOLUCIONES
+# 8. DEVOLUCIONES
 n_dev = 50_000
 devoluciones = pd.DataFrame({
     "id_devolucion": range(1, n_dev + 1),
